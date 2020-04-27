@@ -4,13 +4,14 @@
   </head>
   <body>
     <h1>Mon super site de gossip, depuis le dossier views !</h1>
-    <p>Que souhaites-tu faire?</p>
+    <h3>Que souhaites-tu faire?</h3>
     <a href="/gossips/new/">Je veux créer un nouveau potin</a></br>
     <p><strong>Voici la liste des potins actuelles: </strong></p>
-    <% gossips.each do |gossip| %>
+    <% gossips.each_with_index do |gossip, index| %>
+    <p><a href="/gossips/<%= index + 1%>">Gossip <%= index + 1%></a>
         <p>
-          <%= gossip.author %><br/>
-          <%= gossip.content %>
+          Auteur: <%= gossip.author %><br/>
+          Le potin: <%= gossip.content %>
         </p>
       <% end %>
   </body>

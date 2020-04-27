@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
     redirect '/' #permet de redirgier le user vers la page d'accueil
   end
 
-  get '/gossips/:id/' do 
+  get '/gossips/:id' do 
     puts "Vous avez choi le potin numéro #{params['id']}"
     puts "#{Gossip.find(params['id'].to_i)}"
     erb :show, locals: {gossip: Gossip.find(params['id'].to_i)}
